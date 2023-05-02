@@ -2,13 +2,7 @@ const {Client} = require('pg');
 const dbconfig = require("../config/db.config.js");
 
 //Crear conexion con posgresql
-const con = new Client({
-    host:dbconfig.HOST,
-    user:dbconfig.USER,
-    password:dbconfig.PASSWORD,
-    database:dbconfig.DB,
-    port:dbconfig.PORT
-});
+const con = new Client(process.env.DATABASE_URL);
 
 //abrir conexion
 con.connect((error)=>{
